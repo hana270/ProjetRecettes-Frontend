@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+      <div class="col-md-6 col-lg-4">
+        <!-- Alert message for error -->
+        <div class="alert alert-danger" *ngIf="err==1">
+          <strong>{{message}}</strong>
+        </div>
+        
+        <!-- Login form -->
+        <div class="card shadow-lg p-4 rounded">
+          <h3 class="text-center mb-4">Connexion</h3>
+          <form>
+            <!-- Username input -->
+            <div class="form-group">
+              <label for="username">Nom Utilisateur</label>
+              <input type="text" name="username" id="username" class="form-control" [(ngModel)]="user.username" placeholder="Entrez votre nom d'utilisateur">
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" name="password" id="password" [(ngModel)]="user.password" class="form-control" placeholder="Entrez votre mot de passe">
+            </div>
+  
+            <!-- Link to register if user doesn't have an account -->
+            <p class="text-center">Vous n'avez pas un compte? <a routerLink="/register" class="text-primary">S'inscrire</a></p>
+  
+            <!-- Submit button -->
+            <div class="row justify-content-md-center">
+              <button type="button" (click)="onLoggedin()" class="btn btn-primary w-150">Connexion</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

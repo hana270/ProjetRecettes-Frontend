@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label style="color: brown;font-weight: bold;font-size: 18px;font-family: 'Times New Roman', Times, serif; margin: 20px;">Recettes</label>
+    <select class="form-control form-control-lg" id="idRecette" name="idRecette" [(ngModel)]="idRecette" (change)="onChange()">
+      <option style="color: black;font-size: 15px;" *ngFor="let rec of recettes" value="{{rec.idRecette}}">
+        {{rec.nomRecette}}
+      </option>
+    </select>
+  </div>
+
+  <div class="card shadow mb-4" >
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr style="color: black;font-weight: bold;font-size: 18px;font-family: 'Times New Roman', Times, serif; margin-right: 10px;">
+            <th>idIngredient</th>
+            <th>nomIngredient</th>
+            <th>quantite</th>
+            <th>uniteMesure</th>
+            <th>Recette</th>
+       
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ing of ingredients">
+            <td>{{ing.idIngredient}}</td>
+            <td>{{ing.nomIngredient}}</td>
+            <td>{{ing.quantite}}</td>
+            <td>{{ing.uniteMesure}}</td>
+            <td>{{ing.recette!.nomRecette}}</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

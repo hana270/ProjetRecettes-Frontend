@@ -1,0 +1,35 @@
+<form style="color: brown;font-weight: bold;font-size: 18px;font-family: 'Times New Roman', Times, serif; margin-right: 10px;">
+  <div *ngIf="!ajout" style="padding-top: 50px;"> <!-- ID visible seulement en mode édition -->
+    <label style="font-size: 20px;color: rgb(92, 2, 32);">ID Recette</label>
+    <input type="text" [(ngModel)]="recette.idRecette" name="idRecette" class="form-control w-25" readonly>
+  </div>
+
+  <div>
+    <label style="font-size: 20px;color: rgb(92, 2, 32);">Nom Recette</label>
+    <input type="text" [(ngModel)]="recette.nomRecette" name="nomRecette" class="form-control" placeholder="Entrez le nom de la recette...">
+  </div>
+
+  <div>
+    <label style="font-size: 20px;color: rgb(92, 2, 32);">Description</label>
+    <textarea [(ngModel)]="recette.description" name="description" class="form-control" placeholder="Entrez une description de la recette..."></textarea>
+  </div>
+
+  <div>
+    <label style="font-size: 20px; color: rgb(92, 2, 32);">Date de création</label>
+    <input style="width: max-content;"
+      type="date"
+      [(ngModel)]="recette.dateCreation"
+      [ngModel]="recette.dateCreation | date: 'yyyy-MM-dd'"
+      name="dateCreation"
+      class="form-control w-25"
+    />
+  </div>
+  
+
+  <div class="mt-2">
+    <button   style="font-size: 20px; margin-top: 10px;" type="button" [disabled]="!recette.nomRecette" class="btn btn-success" 
+    (click)="saveRecette()">
+      {{ ajout ? 'Ajouter' : 'Modifier' }}
+    </button>
+  </div>
+</form>

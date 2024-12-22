@@ -1,0 +1,56 @@
+<div class="container">
+
+
+    <form class="form-inline" style="margin-top: 50px;">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label style="color: brown;font-weight: bold;font-size: 18px;font-family: 'Times New Roman', Times, serif; margin-right: 10px;">Nom Ingredient en tapant : </label>
+        <input style="border-radius: 20px;" #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+        </form>
+        
+
+ <!--    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Nom Ingredient en tapant</label>
+            <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        </div>
+    </form>
+ -->
+
+
+
+
+    <!-- <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Nom Ingredient</label>
+            <input type="text" class="form-control" [(ngModel)]="nomIngredient" name="nomIngredient" class="form-control">
+            <button type="submit" (click)="rechercherIngredients()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+        </div>
+</form> -->
+    
+    <div class="card shadow mb-4" style="margin-top: 30px;">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+              <tr style="color:black;font-weight: bold;font-size: 18px;font-family: 'Times New Roman', Times, serif;">
+                <th>idIngredient</th>
+                <th>nomIngredient</th>
+                <th>quantite</th>
+                <th>uniteMesure</th>
+                <th>Recette</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ing of ingredients  | searchFilter: searchTerm ">
+                <td>{{ing.idIngredient}}</td>
+                <td>{{ing.nomIngredient}}</td>
+                <td>{{ing.quantite}}</td>
+                <td>{{ing.uniteMesure}}</td>
+                <td>{{ing.recette!.nomRecette}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    </div>
+    </div>
